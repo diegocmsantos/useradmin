@@ -22,3 +22,8 @@ alanning:roles
 random
 email
 momentjs:moment
+accounts-base
+accounts-password
+aldeed:collection2
+kadira:flow-router
+kadira:blaze-layout
