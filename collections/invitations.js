@@ -1,42 +1,18 @@
-Invitations = new Meteor.Collection('invitations');
+Invitations = new Meteor.Collection( 'invitations' );
 
 Invitations.allow({
-  insert: (function(_this) {
-    return function() {
-      return false;
-    };
-  })(this),
-  update: (function(_this) {
-    return function() {
-      return false;
-    };
-  })(this),
-  remove: (function(_this) {
-    return function() {
-      return false;
-    };
-  })(this)
+  insert: () => false,
+  update: () => false,
+  remove: () => false
 });
 
 Invitations.deny({
-  insert: (function(_this) {
-    return function() {
-      return true;
-    };
-  })(this),
-  update: (function(_this) {
-    return function() {
-      return true;
-    };
-  })(this),
-  remove: (function(_this) {
-    return function() {
-      return true;
-    };
-  })(this)
+  insert: () => true,
+  update: () => true,
+  remove: () => true
 });
 
-var InvitationsSchema = new SimpleSchema({
+let InvitationsSchema = new SimpleSchema({
   email: {
     type: String,
     label: "Email to send invitation to."
@@ -55,4 +31,4 @@ var InvitationsSchema = new SimpleSchema({
   }
 });
 
-Invitations.attachSchema(InvitationsSchema);
+Invitations.attachSchema( InvitationsSchema );
