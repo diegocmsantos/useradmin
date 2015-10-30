@@ -1,8 +1,8 @@
-const admins = [
+var admins = [
   { "email": "admin@admin.com" }
 ];
 
-let setAdmins = () => {
+var setAdmins = function() {
   // for ( let i = 0; i < admins.length; i++ ) {
   //   var admin   = Meteor.users.findOne( { "emails.address": admins[i].email }, { fields: { "_id": 1 } } );
   //       isAdmin = _isUserAnAdmin( admin._id );
@@ -13,7 +13,7 @@ let setAdmins = () => {
   // }
 };
 
-let _isUserAnAdmin = ( userId ) => {
+var _isUserAnAdmin = function( userId ) {
   return Roles.userIsInRole( userId, 'admin' );
 };
 

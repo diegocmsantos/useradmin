@@ -1,12 +1,12 @@
-let login = ( options ) => {
+var login = function( options ) {
   _validate( options.form, options.template );
 };
 
-let _validate = ( form, template ) => {
+var _validate = function( form, template ) {
   $( form ).validate( validation( template ) );
 };
 
-let validation = ( template ) => {
+var validation = function( template ) {
   return {
     rules: {
       emailAddress: {
@@ -30,11 +30,11 @@ let validation = ( template ) => {
   };
 };
 
-let _handleLogin = ( template ) => {
-  let email    = template.find( '[name="emailAddress"]' ).value,
+var _handleLogin = function( template ) {
+  var email    = template.find( '[name="emailAddress"]' ).value,
       password = template.find( '[name="password"]' ).value;
 
-  Meteor.loginWithPassword( email, password, ( error ) => {
+  Meteor.loginWithPassword( email, password, ( error ) {
     if ( error ) {
       Bert.alert( error.reason, 'warning' );
     } else {

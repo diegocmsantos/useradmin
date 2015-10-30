@@ -1,5 +1,5 @@
 Meteor.publish( 'users', function() {
-  let isAdmin = Roles.userIsInRole( this.userId, 'admin' );
+  var isAdmin = Roles.userIsInRole( this.userId, 'admin' );
 
   if ( isAdmin ) {
     return [

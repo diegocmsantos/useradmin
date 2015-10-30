@@ -1,12 +1,12 @@
-let recoverPassword = ( options ) => {
+var recoverPassword = function( options ) {
   _validate( options.form, options.template );
 };
 
-let _validate = ( form, template ) => {
+var _validate = function( form, template ) {
   $( form ).validate( validation( template ) );
 };
 
-let validation = ( template ) => {
+var validation = function( template ) {
   return {
     rules: {
       emailAddress: {
@@ -24,10 +24,10 @@ let validation = ( template ) => {
   };
 };
 
-let _handleRecovery = ( template ) => {
-  let email = template.find( '[name="emailAddress"]' ).value;
+var _handleRecovery = function( template ) {
+  var email = template.find( '[name="emailAddress"]' ).value;
 
-  Accounts.forgotPassword( { email: email }, ( error ) => {
+  Accounts.forgotPassword( { email: email }, ( error ) {
     if ( error ) {
       Bert.alert( error.reason, 'warning' );
     } else {

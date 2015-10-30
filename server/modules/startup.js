@@ -1,19 +1,23 @@
-let startup = () => {
-  _setEnvironmentVariables();
-  _setBrowserPolicies();
-  _generateAccounts();
-  _setAdmins();
+var startup = function() {
+
+  _setEnvironmentVariablesfunction();
+  _setBrowserPoliciesfunction();
+  _generateAccountsfunction();
+  _setAdminsfunction();
+
 };
 
-let _setEnvironmentVariables = () => {
-  let settings = Meteor.settings.private;
+var _setEnvironmentVariables = function() {
+
+  var settings = Meteor.settings.private;
   process.env.MAIL_URL = settings.MAIL_URL;
+
 };
 
-let _setBrowserPolicies = () => {};
+var _setBrowserPolicies = function() {};
 
-let _generateAccounts = () => Modules.server.generateAccounts();
+var _generateAccounts = function() Modules.server.generateAccountsfunction();
 
-let _setAdmins = () => Modules.server.setAdmins();
+var _setAdmins = function() Modules.server.setAdminsfunction();
 
 Modules.server.startup = startup;
