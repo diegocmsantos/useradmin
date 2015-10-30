@@ -1,4 +1,4 @@
-Template.users.onCreated( () => {
+Template.users.onCreated( function() {
   Template.instance().subscribe( 'users' );
 });
 
@@ -25,12 +25,12 @@ Template.users.helpers({
 
 Template.users.events({
   'change [name="userRole"]': function( event, template ) {
-    let role = $( event.target ).find( 'option:selected' ).val();
+    var role = $( event.target ).find( 'option:selected' ).val();
 
     Meteor.call( "setRoleOnUser", {
       user: this._id,
       role: role
-    }, ( error, response ) => {
+    }, ( error, response ) {
       if ( error ) {
         Bert.alert( error.reason, "warning" );
       }

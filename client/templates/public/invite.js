@@ -1,4 +1,4 @@
-Template.invite.onCreated( () => {
+Template.invite.onCreated( function() {
   Template.instance().subscribe( 'invite', FlowRouter.current().params.token );
 });
 

@@ -2,14 +2,14 @@ Template.sendInvitationModal.events({
   'submit form' ( event, template ) {
     event.preventDefault();
 
-    let email = template.find( "[name='emailAddress']" ).value,
+    var email = template.find( "[name='emailAddress']" ).value,
         role  = template.find( "[name='roles'] option:selected" ).value;
 
     if ( email && role !== "" ) {
       Meteor.call( "sendInvitation", {
         email: email,
         role: role
-      }, ( error, response ) => {
+      }, function( error, response ) {
         if ( error ) {
           Bert.alert( error.reason, "warning" );
         } else {
