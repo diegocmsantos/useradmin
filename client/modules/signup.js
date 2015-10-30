@@ -1,12 +1,12 @@
-let signup = ( options ) => {
+var signup = function( options ) {
   _validate( options.form, options.template );
 };
 
-let _validate = ( form, template ) => {
+var _validate = function( form, template ) {
   $( form ).validate( validation( template ) );
 };
 
-let validation = ( template ) => {
+var validation = function( template ) {
   return {
     rules: {
       emailAddress: {
@@ -32,13 +32,13 @@ let validation = ( template ) => {
   };
 };
 
-let _handleSignup = ( template ) => {
-  let user = {
+var _handleSignup = function( template ) {
+  var user = {
     email: template.find( '[name="emailAddress"]' ).value,
     password: template.find( '[name="password"]' ).value
   };
 
-  Accounts.createUser( user, ( error ) => {
+  Accounts.createUser( user, ( error ) {
     if ( error ) {
       Bert.alert( error.reason, 'danger' );
     } else {

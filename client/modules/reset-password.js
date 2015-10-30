@@ -1,12 +1,12 @@
-let resetPassword = ( options ) => {
+var resetPassword = function( options ) {
   _validate( options.form, options.template );
 };
 
-let _validate = ( form, template ) => {
+var _validate = function( form, template ) {
   $( form ).validate( validation( template ) );
 };
 
-let validation = ( template ) => {
+var validation = function( template ) {
   return {
     rules: {
       newPassword: {
@@ -33,11 +33,11 @@ let validation = ( template ) => {
   };
 };
 
-let _handleReset = ( template ) => {
+var _handleReset = function( template ) {
   var token    = FlowRouter.current().params.token,
       password = template.find( '[name="newPassword"]' ).value;
 
-  Accounts.resetPassword( token, password, ( error ) => {
+  Accounts.resetPassword( token, password, ( error ) {
     if ( error ) {
       Bert.alert( error.reason, 'danger' );
     } else {
